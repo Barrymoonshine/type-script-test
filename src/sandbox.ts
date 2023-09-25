@@ -1,86 +1,30 @@
-// tsc 'filename.ts' - w , auto compile every save
-// tsc --init to create tsconfig
+let greet: Function;
 
-// Can't change the type of a variable, even if declared with let
-
-// Basics
-// let char = "yoshi";
-
-// let age = 30;
-
-// Type check in function
-// const circ = (diameter: number) => diameter * Math.PI;
-
-// console.log(circ(7.5));
-
-// Arrays
-
-const arr = ["hello", "goodbye", "night"];
-
-arr.push("morning");
-// TypeScript only allows pushing of same type, err
-// arr.push(3);
-
-const arrMixed = [2, "hello", 4, "goodbye"];
-
-// Allows pushing of any types already present in array
-arrMixed.push("night");
-
-// Objects
-// Can't later change types of properties
-let obj = {
-  name: "barry",
-  age: 500,
-  favColour: "green",
+greet = () => {
+  console.log("hello world");
 };
 
-// You can reassign values to each property, but the object structure must stay the same
-// I.e. can't remove or add new properties
-obj = {
-  name: "frank",
-  age: 300,
-  favColour: "pink",
+// Optional function parameter with optional chaining, default parameter with equals
+const add = (a: number, b: number, c: number = 10) => {
+  console.log(a + b + c);
 };
 
-// Explicit types - variables
-let username: string;
-let age: number;
-let isLoggedIn: boolean;
+add(5, 10);
 
-username = "barrmoonshine";
-age = 1000000;
-isLoggedIn = true;
+// Colon and then the type explicity confirms the type being returned by the number
+const minus = (a: number, b: number): number => {
+  return a + b;
+};
 
-// Explicit types, arrays
-let posts: string[] = []; // posts an array of strings, initialise with empty value
+// Type inferred by the returned value of minus
+let result = minus(10, 7);
 
-posts = ["hello world", "my first post"];
-posts.push("cool post"); // Must initialise with value of empty array before mutating
+// Type aliases
 
-console.log(posts);
+type userDetails = { username: string; totalPosts: number; password: string };
 
-// Union types, what types are allowed, example array
-let mixed: (string | number | boolean)[] = [];
-
-mixed.push("hello");
-mixed.push(100);
-
-console.log(mixed);
-
-// Example string with union types
-let uid: string | number;
-uid = 123;
-uid = "123";
-
-// Objects
-let myObj: object; // Note array is a type of object
-myObj = { message: "hello", likes: 50, published: true };
-
-let myObjTwo: {
-  message: string;
-  likes: number;
-  published: boolean;
-}; // Stricter object setting, array would not be allowed
-
-// Any type, can overwrite the any type
-let recipes: any;
+const logInUser = (user: userDetails) => {
+  console.log(
+    `Hello ${user.username}, you have a posted ${user.totalPosts} times`
+  );
+};
