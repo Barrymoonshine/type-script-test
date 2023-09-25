@@ -28,3 +28,28 @@ obj = {
     age: 300,
     favColour: "pink",
 };
+// Explicit types - variables
+var username;
+var age;
+var isLoggedIn;
+username = "barrmoonshine";
+age = 1000000;
+isLoggedIn = true;
+// Explicit types, arrays
+var posts = []; // posts an array of strings, initialise with empty value
+posts = ["hello world", "my first post"];
+posts.push("cool post"); // Must initialise with value of empty array before mutating
+console.log(posts);
+// Union types, what types are allowed, example array
+var mixed = [];
+mixed.push("hello");
+mixed.push(100);
+console.log(mixed);
+// Example string with union types
+var uid;
+uid = 123;
+uid = "123";
+// Objects
+var myObj; // Note array is a type of object
+myObj = { message: "hello", likes: 50, published: true };
+var myObjTwo; // Stricter object setting, array would not be allowed

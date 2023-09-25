@@ -40,3 +40,43 @@ obj = {
   age: 300,
   favColour: "pink",
 };
+
+// Explicit types - variables
+let username: string;
+let age: number;
+let isLoggedIn: boolean;
+
+username = "barrmoonshine";
+age = 1000000;
+isLoggedIn = true;
+
+// Explicit types, arrays
+let posts: string[] = []; // posts an array of strings, initialise with empty value
+
+posts = ["hello world", "my first post"];
+posts.push("cool post"); // Must initialise with value of empty array before mutating
+
+console.log(posts);
+
+// Union types, what types are allowed, example array
+let mixed: (string | number | boolean)[] = [];
+
+mixed.push("hello");
+mixed.push(100);
+
+console.log(mixed);
+
+// Example string with union types
+let uid: string | number;
+uid = 123;
+uid = "123";
+
+// Objects
+let myObj: object; // Note array is a type of object
+myObj = { message: "hello", likes: 50, published: true };
+
+let myObjTwo: {
+  message: string;
+  likes: number;
+  published: boolean;
+}; // Stricter object setting, array would not be allowed
